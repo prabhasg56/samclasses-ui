@@ -1,4 +1,4 @@
-import ScheduleClass from '@/components/ScheduleClass/ScheduleClass';
+import ScheduleClass from '@/components/Student/ScheduleClass/ScheduleClass';
 
 const index = () => {
   return (

@@ -1,29 +1,11 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Sidebar = () => {
+  const route = useRouter();
+  const currentPath = route.pathname;
   return (
     <>
-      {/* <button
-        type="button"
-        class="text-gray-500 hover:text-gray-600"
-        data-hs-overlay="#docs-sidebar"
-        aria-controls="docs-sidebar"
-        aria-label="Toggle navigation"
-      >
-        <svg
-          class="w-5 h-5"
-          width="16"
-          height="16"
-          fill="currentColor"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-          />
-        </svg>
-      </button> */}
-
       <div
         id="docs-sidebar"
         class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform top-0 left-0 bottom-0 z-[60] w-64 bg-white border-r border-gray-200 pt-7 pb-10 overflow-y-auto  lg:block lg:translate-x-0 lg:right-auto lg:bottom-0  dark:bg-gray-800 dark:border-gray-700"
@@ -45,7 +27,9 @@ const Sidebar = () => {
           <ul class="space-y-1.5">
             <li>
               <Link
-                class="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-900 dark:text-white"
+                class={`flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700  dark:text-slate-400 rounded-md hover:bg-gray-900  focus:bg-gray-900 ${
+                  currentPath === "/dashboard" ? "bg-gray-900" : ""
+                }`}
                 href="/dashboard"
               >
                 <svg
@@ -65,13 +49,15 @@ const Sidebar = () => {
                     d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"
                   />
                 </svg>
-                Dashboard
+                Users Dashboard
               </Link>
             </li>
 
             <li>
               <Link
-                class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300"
+                class={`flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 focus:bg-gray-900 ${
+                  currentPath === "/student/scheduleClass" ? "bg-gray-900" : ""
+                }`}
                 href="/student/scheduleClass"
               >
                 <svg
@@ -85,7 +71,29 @@ const Sidebar = () => {
                   <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
                   <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                 </svg>
-                Schedule Class
+                Schedule Class(S)
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                class={`flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 focus:bg-gray-900 ${
+                  currentPath === "/teacher/scheduleClass" ? "bg-gray-900" : ""
+                }`}
+                href="/teacher/scheduleClass"
+              >
+                <svg
+                  class="w-3.5 h-3.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
+                  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                </svg>
+                Schedule Class(T)
               </Link>
             </li>
 
@@ -261,12 +269,6 @@ const Sidebar = () => {
         Documentation
       </a></li> */}
           </ul>
-
-          <div className="flex px-3 py-4">
-            <span className="text-md font-medium text-text-light ">
-              Logout
-            </span>
-          </div>
         </nav>
       </div>
     </>

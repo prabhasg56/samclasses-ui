@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Layout from "../Layout/Layout";
-import Modal from "../Modal/Modal";
+import Layout from "../../Layout/Layout";
+import Modal from "../../Modal/Modal";
 
 const ScheduleClass = () => {
   const [showModal, setShowModal] = useState(false);
